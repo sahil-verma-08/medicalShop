@@ -97,7 +97,7 @@ const Footer = () => {
         {/* BOTTOM BAR */}
         <div className="border-t border-gray-700 mt-8 md:mt-12 pt-6 md:pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-            <p>&copy; 2026 ArogvixPharma. All rights reserved.</p>
+            <p>&copy; 2026 PMGenric9018. All rights reserved.</p>
             <p className="text-xs">Made for healthcare</p>
           </div>
         </div>

@@ -285,20 +285,7 @@ const Checkout = () => {
                   <p className="text-sm text-gray-600">Pay when you receive your order</p>
                 </div>
               </label>
-              <label className="flex items-center p-4 border-2 rounded cursor-pointer">
-                <input
-                  type="radio"
-                  name="payment"
-                  value="ONLINE_TEST"
-                  checked={paymentMethod === 'ONLINE_TEST'}
-                  onChange={(e) => setPaymentMethod(e.target.value)}
-                  className="mr-2"
-                />
-                <div>
-                  <p className="font-semibold">Online Payment (Test Mode)</p>
-                  <p className="text-sm text-gray-600">Simulated payment - no real transaction</p>
-                </div>
-              </label>
+             <p className='text-red-500 font-bold'>We will verify your order via phone call, Please provide a valid phone number.</p>
             </div>
           </div>
         </div>

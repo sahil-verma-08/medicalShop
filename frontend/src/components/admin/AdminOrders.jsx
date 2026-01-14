@@ -37,7 +37,8 @@ const AdminOrders = () => {
       PACKED: 'bg-yellow-100 text-yellow-800',
       SHIPPED: 'bg-purple-100 text-purple-800',
       DELIVERED: 'bg-green-100 text-green-800',
-      CANCELLED: 'bg-red-100 text-red-800'
+      CANCELLED: 'bg-red-100 text-red-800',
+      'PH-INVALID': 'bg-red-200 text-red-900'
     };
     return colors[status] || 'bg-gray-100 text-gray-800';
   };
@@ -57,6 +58,8 @@ const AdminOrders = () => {
           <option value="SHIPPED">Shipped</option>
           <option value="DELIVERED">Delivered</option>
           <option value="CANCELLED">Cancelled</option>
+          <option value="PH-INVALID">Ph-Invalid
+          </option>
         </select>
       </div>
 
@@ -125,6 +128,7 @@ const AdminOrders = () => {
                   <option value="SHIPPED">Shipped</option>
                   <option value="DELIVERED">Delivered</option>
                   <option value="CANCELLED">Cancelled</option>
+                  <option value="PH-INVALID">Ph-Invalid</option>
                 </select>
               </div>
             </div>

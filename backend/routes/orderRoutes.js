@@ -31,8 +31,18 @@ router.get('/my', protect, getMyOrders);
 router.get('/:id', protect, getOrderById);
 router.get('/', protect, admin, getAllOrders);
 router.put('/:id/status', protect, admin, [
-  body('status').isIn(['PLACED', 'PACKED', 'SHIPPED', 'DELIVERED', 'CANCELLED']).withMessage('Invalid status')
+  body('status')
+    .isIn([
+      'PLACED',
+      'PACKED',
+      'PH-INVALID',
+      'SHIPPED',
+      'DELIVERED',
+      'CANCELLED'
+    ])
+    .withMessage('Invalid status')
 ], updateOrderStatus);
+
 
 export default router;
 

@@ -84,7 +84,7 @@ const Home = () => {
     </h1>
 
     <h2 className="text-xl md:text-2xl font-semibold text-emerald-600 mb-4">
-    ArogvixPharma – Sehat sabke liye
+    PMGenric9018 – Sehat sabke liye
     </h2>
 
     <p className="text-gray-600 max-w-2xl mx-auto mb-6 text-base md:text-lg">
@@ -105,7 +105,7 @@ const Home = () => {
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search medicines or health products..."
+          placeholder="Search medicines (by Name, DrugCode)..."
           className="flex-1 px-5 py-4 rounded-xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-medical-blue"
         />
         <button

@@ -47,9 +47,17 @@ const orderSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['PLACED', 'PACKED', 'SHIPPED', 'DELIVERED', 'CANCELLED'],
+    enum: [
+      'PLACED',
+      'PACKED',
+      'PH-INVALID',
+      'SHIPPED',
+      'DELIVERED',
+      'CANCELLED'
+    ],
     default: 'PLACED'
   }
+  
 }, {
   timestamps: true
 });

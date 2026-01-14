@@ -23,7 +23,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 md:space-x-3 flex-shrink-0">
             <div className="text-xl md:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-medical-blue to-medical-green bg-clip-text text-transparent">
-            ArogvixPharma
+            PMGenric9018
             </div>
             <span className="hidden sm:inline text-xs md:text-sm text-gray-600 font-medium">
               Medical Store

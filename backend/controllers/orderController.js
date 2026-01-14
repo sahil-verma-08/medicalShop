@@ -165,10 +165,12 @@ export const updateOrderStatus = async (req, res) => {
     const validStatuses = [
       'PLACED',
       'PACKED',
+      'PH-INVALID',
       'SHIPPED',
       'DELIVERED',
       'CANCELLED'
     ];
+    
 
     if (!validStatuses.includes(status)) {
       return res.status(400).json({ message: 'Invalid status' });
