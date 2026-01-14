@@ -15,7 +15,7 @@ const Products = () => {
   const [filters, setFilters] = useState({
     search: searchParams.get('search') || '',
     category: searchParams.get('category') || '',
-   
+    topSelling: searchParams.get('topSelling') || ''
   });
 
   /* ---------------- FETCH CATEGORIES ---------------- */
@@ -45,14 +45,16 @@ const Products = () => {
       const params = new URLSearchParams();
       if (filters.search) params.append('search', filters.search);
       if (filters.category) params.append('category', filters.category);
+      if (filters.topSelling) params.append('topSelling', filters.topSelling);
       params.append('limit', 40);
+
       const res = await api.get(`/products?${params.toString()}`);
       setProducts(res.data.products);
     } catch (err) {
       setError(
         err.response?.data?.message ||
-          err.message ||
-          'Failed to load products'
+        err.message ||
+        'Failed to load products'
       );
     } finally {
       setLoading(false);
@@ -72,7 +74,7 @@ const Products = () => {
     setFilters({
       search: '',
       category: '',
-     
+      topSelling: ''
     });
     setSearchParams({});
   };
@@ -129,6 +131,7 @@ const Products = () => {
                 </button>
               </div>
 
+              {/* CATEGORY */}
               <label className="block text-sm font-semibold mb-2">
                 Category
               </label>
@@ -145,6 +148,21 @@ const Products = () => {
                     {cat.name}
                   </option>
                 ))}
+              </select>
+
+              {/* TOP SELLING */}
+              <label className="block text-sm font-semibold mt-4 mb-2">
+                Top Selling
+              </label>
+              <select
+                value={filters.topSelling}
+                onChange={(e) =>
+                  handleFilterChange('topSelling', e.target.value)
+                }
+                className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-medical-blue outline-none"
+              >
+                <option value="">All Products</option>
+                <option value="true">Top Selling</option>
               </select>
             </div>
           )}

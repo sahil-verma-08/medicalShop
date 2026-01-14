@@ -1,9 +1,6 @@
 import Product from '../models/Product.js';
 import { validationResult } from 'express-validator';
 
-// @desc    Get all products with filters
-// @route   GET /api/products
-// @access  Public
 export const getProducts = async (req, res) => {
   try {
     const {
@@ -12,14 +9,13 @@ export const getProducts = async (req, res) => {
       minPrice,
       maxPrice,
       prescriptionRequired,
+      topSelling,       // 🔥
       page = 1,
       limit = 30
     } = req.query;
 
-    // Build query
     const query = { isActive: true };
 
-    // Search by name, brand
     if (search) {
       query.$or = [
         { name: { $regex: search, $options: 'i' } },
@@ -27,24 +23,25 @@ export const getProducts = async (req, res) => {
       ];
     }
 
-    // Filter by category
     if (category) {
       query.category = category;
     }
 
-    // Filter by price range
     if (minPrice || maxPrice) {
       query.price = {};
       if (minPrice) query.price.$gte = Number(minPrice);
       if (maxPrice) query.price.$lte = Number(maxPrice);
     }
 
-    // Filter by prescription requirement
     if (prescriptionRequired !== undefined) {
       query.isPrescriptionRequired = prescriptionRequired === 'true';
     }
 
-    // Pagination
+    
+    if (topSelling !== undefined) {
+      query.topSelling = topSelling === 'true';
+    }
+
     const skip = (Number(page) - 1) * Number(limit);
 
     const products = await Product.find(query)
@@ -66,9 +63,7 @@ export const getProducts = async (req, res) => {
   }
 };
 
-// @desc    Get single product
-// @route   GET /api/products/:id
-// @access  Public
+
 export const getProductById = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id)

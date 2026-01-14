@@ -42,6 +42,13 @@ const productSchema = new mongoose.Schema({
     min: [0, 'Stock cannot be negative'],
     default: 0
   },
+
+  // 🔥 ADD THIS
+  topSelling: {
+    type: Boolean,
+    default: false
+  },
+
   isPrescriptionRequired: {
     type: Boolean,
     default: false
@@ -50,7 +57,7 @@ const productSchema = new mongoose.Schema({
     type: String,
     default: 'https://via.placeholder.com/300x300?text=Medicine'
   },
-  // Medical information fields (with disclaimers)
+
   composition: {
     type: String,
     default: 'Please consult your doctor for detailed composition information.'
@@ -75,7 +82,7 @@ const productSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Calculate discount percent if not provided
+// Auto discount calculation
 productSchema.pre('save', function(next) {
   if (this.mrp > this.price && !this.discountPercent) {
     this.discountPercent = Math.round(((this.mrp - this.price) / this.mrp) * 100);
@@ -84,12 +91,4 @@ productSchema.pre('save', function(next) {
 });
 
 const Product = mongoose.model('Product', productSchema);
-
 export default Product;
-
-
-
-
-
-
-

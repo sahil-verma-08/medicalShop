@@ -27,15 +27,21 @@ const Home = () => {
 
   const fetchTopProducts = async () => {
     try {
-      const response = await api.get('/products?limit=15');
+      const response = await api.get(
+        '/products?topSelling=true&limit=15'
+      );
       setTopProducts(response.data.products);
       setLoading(false);
     } catch (error) {
-      console.error('Error fetching products:', error);
-      setError(`Failed to load products: ${error.response?.data?.message || error.message || 'Please check if backend is running on port 5000'}`);
+      console.error('Error fetching top products:', error);
+      setError(
+        error.response?.data?.message ||
+        'Failed to load top selling products'
+      );
       setLoading(false);
     }
   };
+  
 
   const handleSearch = (e) => {
     e.preventDefault();
