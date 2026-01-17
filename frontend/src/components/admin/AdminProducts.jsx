@@ -29,14 +29,21 @@ const AdminProducts = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await api.get('/products?limit=100');
-      setProducts(response.data.products);
+      const response = await api.get('/products?limit=1000');
+  
+    
+      const sortedProducts = response.data.products.sort((a, b) =>
+        a.name.localeCompare(b.name)
+      );
+  
+      setProducts(sortedProducts);
     } catch (error) {
       console.error('Error fetching products:', error);
     } finally {
       setLoading(false);
     }
   };
+  
 
   const fetchCategories = async () => {
     try {
