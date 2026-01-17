@@ -1,4 +1,4 @@
-# MediBazaar - Medical E-Commerce Platform
+# pmgeneric9018 - Medical E-Commerce Platform
 
 A full-stack MERN (MongoDB, Express, React, Node.js) application for an online medical store, similar to a clothing e-commerce site but adapted for medicines and healthcare products.
 
