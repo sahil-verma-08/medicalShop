@@ -62,27 +62,7 @@ const Home = () => {
   return (
     <div>
 
-      {/* 🔴 ERROR BOX */}
-      {error && (
-        <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 m-4 rounded">
-          <div className="flex justify-between items-center">
-            <div>
-              <p className="font-bold">Connection Error</p>
-              <p className="text-sm">{error}</p>
-            </div>
-            <button
-              onClick={() => {
-                setError('');
-                fetchCategories();
-                fetchTopProducts();
-              }}
-              className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-            >
-              Retry
-            </button>
-          </div>
-        </div>
-      )}
+   
 
       {/* 🔵 HERO SECTION */}
       <section className="relative bg-gradient-to-br from-sky-50 via-white to-emerald-50 py-16 md:py-24">
