@@ -137,6 +137,9 @@ const Home = () => {
 
       
 <section className="py-10 bg-white">
+<h2 className="text-2xl sm:text-3xl pl-10 mb-4 md:text-4xl font-bold text-gray-900">
+              We also have..
+            </h2>
   <div className="container mx-auto px-4">
     <ImageSlider />
   </div>
