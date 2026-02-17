@@ -83,16 +83,8 @@ const Footer = () => {
 
         </div>
 
-        {/* FULL WIDTH DISCLAIMER */}
-        <div className="mt-10 bg-yellow-900/30 border-l-4 border-yellow-500 p-5 rounded-lg">
-          <p className="text-gray-200 text-sm md:text-base leading-relaxed max-w-5xl">
-            <strong className="text-yellow-400 block mb-2 text-lg">
-              ⚠️ Important Disclaimer
-            </strong>
-            Always consult a doctor before using any medicine. This website is a demo
-            and does not replace professional medical advice. Do not self-medicate.
-          </p>
-        </div>
+       
+       
 
         {/* BOTTOM BAR */}
         <div className="border-t border-gray-700 mt-8 md:mt-12 pt-6 md:pt-8">
